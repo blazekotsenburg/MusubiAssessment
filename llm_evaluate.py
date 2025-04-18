@@ -1,7 +1,7 @@
 import pandas as pd
 from llm_classifier import classifier
 
-df = pd.read_csv("synthetic_dataset_01.csv")
+df = pd.read_csv("synthetic_dataset.csv")
 
 df.insert(0, "id", range(1, len(df) + 1))
 
@@ -21,7 +21,7 @@ for idx, row in df.iterrows():
     result = classifier(content)
     
     llm_output.append({
-        "id": idx,
+        "id": idx + 1,
         "ModelLabel": result["label"],
         "Reason": result["reason"]
     })
@@ -40,7 +40,7 @@ print("Accuracy:", accuracy)
 
 llm_df = pd.DataFrame(llm_output)
 final_df = pd.merge(df, llm_df, on="id")
-final_df.to_csv("final_output.csv", index=False)
+final_df.to_csv("final_output_hotfix.csv", index=False)
 
 
 with open("llm_eval.txt", 'w') as f:
