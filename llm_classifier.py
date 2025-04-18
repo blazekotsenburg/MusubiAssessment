@@ -7,9 +7,9 @@ from langchain_core.prompts import ChatPromptTemplate
 
 import json
 
-def classifier(input: str) -> dict:
+def classifier(input: str) -> dict: 
     try:
-        llm=ChatNVIDIA(model="mistralai/mistral-7b-instruct-v0.3",
+        llm=ChatNVIDIA(model="mistralai/mistral-7b-instruct-v0.3", 
               nvidia_api_key="",
               temperature=0)
         
