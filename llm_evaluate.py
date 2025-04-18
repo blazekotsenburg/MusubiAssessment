@@ -5,7 +5,7 @@ df = pd.read_csv("synthetic_dataset_01.csv")
 
 df.insert(0, "id", range(1, len(df) + 1))
 
-# Assuming df is your original DataFrame with 'id', 'Content', and 'Expected'
+# This is the llm dataframe to capture the output and later join with synthetic data.
 llm_df = pd.DataFrame({
     "id": df["id"],
     "ModelLabel": "",
